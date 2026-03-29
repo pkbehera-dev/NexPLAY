@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/NexPLAY/admin/smtp_settings.php" class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'smtp_settings.php' ? 'active fw-bold' : ''; ?>">
+        <a href="/NexPLAY/admin/settings.php" class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active fw-bold' : ''; ?>">
           <i class="bi bi-gear me-2"></i> Settings
         </a>
       </li>
