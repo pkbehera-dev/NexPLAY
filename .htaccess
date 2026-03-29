@@ -1,0 +1,22 @@
+RewriteEngine On
+RewriteBase /NexPLAY/
+
+# Disable directory browsing
+Options -Indexes
+
+# If a given path is a directory or a file, serve it natively (CSS, JS, Images etc)
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Explicit routes for the Authentication Module (Decluttered from Root)
+RewriteRule ^login/?$ auth/login.php [L]
+RewriteRule ^register/?$ auth/register.php [L]
+RewriteRule ^logout/?$ auth/logout.php [L]
+RewriteRule ^auth_actions/?$ auth/auth_actions.php [L]
+RewriteRule ^reset_admin/?$ auth/reset_admin.php [L]
+
+# Generic fallback: append .php to extensionless URLs if the php file exists
+# E.g., /NexPLAY/admin/dashboard routes to /NexPLAY/admin/dashboard.php
+RewriteCond %{DOCUMENT_ROOT}/NexPLAY/$1.php -f
+RewriteRule ^(.*)$ $1.php [L]
